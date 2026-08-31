@@ -10,53 +10,99 @@ CGM Glucose Viewer is an interactive Streamlit dashboard designed for multi-pati
 * **Interactive Main Visualizations:** Plotly line charts with range sliders, interactive date range controls, and metric summaries (Mean, Min, Max).
 * **Independent ML Date Filtering:** Dedicated time-window slider specifically for ML algorithms to isolate specific days or weeks.
 * **5 Machine Learning & Statistical Tools:**
-* **Isolation Forest:** Flag unusual glucose spikes, drops, or reading anomalies.
-* **K-Means Clustering:** Group physiological states using glucose levels and rate of change (ROC).
-* **Fast Fourier Transform (FFT):** Discover repeating circadian rhythms and meal cycles in the frequency domain.
-* **Rolling Trend Analysis:** Compute moving averages with $\pm 1$ standard deviation volatility bands.
-* **Linear Regression:** Evaluate baseline drift rate (mmol/L per hour) and regression fit ($R^2$).
-
-
+  * **Isolation Forest:** Flag unusual glucose spikes, drops, or reading anomalies.
+  * **K-Means Clustering:** Group physiological states using glucose levels and rate of change (ROC).
+  * **Fast Fourier Transform (FFT):** Discover repeating circadian rhythms and meal cycles in the frequency domain.
+  * **Rolling Trend Analysis:** Compute moving averages with $\pm 1\text{ Std}$ volatility bands.
+  * **Linear Regression:** Evaluate baseline drift rate (mmol/L per hour) and regression fit ($R^2$).
 * **In-App Method Guidance:** Clear methodological explanations for each ML tab detailing how the algorithm works and what it measures.
+
+---
 
 ## 🚀 Getting Started
 
-### Requirements
+Follow these simple step-by-step instructions to get the app running on your computer.
 
-* Python 3.9+
-* `pip` package manager
+### Step 1: Download the Project
 
-### Run Locally
+1. Click the green **Code** button near the top right of this page.
+2. Click **Download ZIP**.
+3. Open your computer's `Downloads` folder, double-click the file, and extract/unzip the folder.
 
-1. Clone or download the repository:
+---
+
+### Step 2: Open Your Command Terminal
+
+* **Windows:** Press the `Windows Key`, type `cmd` or `PowerShell`, and press **Enter**.
+* **Mac:** Press `Cmd + Space`, type `Terminal`, and press **Enter**.
+
+---
+
+### Step 3: Navigate to the Project Folder
+
+Type `cd ` (with a space after it), then drag and drop your extracted folder directly into the terminal window, or copy and paste:
+
+* **Windows:**
+  ```cmd
+  cd %USERPROFILE%\Downloads\cgm-glucose-analysis-main
+
+```
+
+* **Mac:**
 ```bash
-git clone https://github.com/your-username/cgm-glucose-viewer.git
-cd cgm-glucose-viewer
+cd ~/Downloads/cgm-glucose-analysis-main
 
 ```
 
 
-2. Install required packages:
-```bash
+
+---
+
+### Step 4: Install Dependencies
+
+Paste the appropriate command into your terminal and press **Enter**:
+
+* **Windows:**
+```cmd
 pip install -r requirements.txt
 
 ```
 
 
-3. Start the Streamlit application:
+* **Mac:**
 ```bash
-streamlit run app.py
+pip3 install -r requirements.txt
 
 ```
 
 
-4. Open your browser to the URL displayed in the terminal:
-```text
-http://localhost:8501
+
+*(If Python is missing, download it from [python.org](https://www.python.org/downloads/). Ensure you check the box that says "Add Python to PATH" during installation on Windows).*
+
+---
+
+### Step 5: Run the App
+
+Launch the application by running:
+
+* **Windows:**
+```cmd
+streamlit run main.py
 
 ```
 
 
+* **Mac:**
+```bash
+python3 -m streamlit run main.py
+
+```
+
+
+
+Your browser will automatically pop open to **`http://localhost:8501`** with the dashboard ready to use!
+
+---
 
 ## 🛠️ Project Setup & Dependencies
 
@@ -73,6 +119,8 @@ scipy
 ```
 
 *Note: On macOS systems, the app automatically configures environment variables to prevent potential `joblib`/`scikit-learn` CPU auto-detection issues during K-Means clustering.*
+
+---
 
 ## 📁 Supported CSV Format
 
@@ -93,6 +141,8 @@ The application expects CGM CSV files structured as follows:
 
 
 
+---
+
 ## 🧠 Machine Learning Overview
 
 | Method | Focus & Measurement | Key Output |
@@ -100,12 +150,14 @@ The application expects CGM CSV files structured as follows:
 | **Isolation Forest** | Statistical outlier detection | Anomalous reading points |
 | **K-Means Clustering** | Multi-variable state grouping | Cluster centroids & scatter plot |
 | **FFT Periodicity** | Frequency domain cycle detection | Peak power spectral hours (e.g., 24h, 4h) |
-| **Rolling Trend** | Short-term volatility and direction | Moving average band ($\pm 1 \text{ Std}$) |
+| **Rolling Trend** | Short-term volatility and direction | Moving average band ($\pm 1\text{ Std}$) |
 | **Linear Regression** | Macro baseline trajectory | Drift rate (mmol/L per hr) & $R^2$ fit |
+
+---
 
 ## 📂 Project Structure
 
-* `app.py` — main Streamlit application containing CSV parsing, tab layout, interactive charts, and ML algorithms
+* `main.py` — main Streamlit application containing CSV parsing, tab layout, interactive charts, and ML algorithms
 * `requirements.txt` — Python dependencies
 * `README.md` — project documentation and setup instructions
 
